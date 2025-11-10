@@ -1,0 +1,558 @@
+<!DOCTYPE html>\
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beauty of Nature</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+
+      position: relative;
+    }
+    .blurred-background {
+  position: absolute; /* or fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjG-x8cg06s7k2Bo3rwu36IiSFK1-oj_STxtIdNuYLHXvqOE9-XddKz_PVzJ6SSEPsV3BZ&s); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px); /* Adjust the blur amount as needed */
+  z-index: -1;
+}
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: #0f0f10;
+    font-family: "Poppins", sans-serif;
+  }
+
+  nav {
+    width: 100%;
+    background: linear-gradient(135deg, #0f0f10, #1a1a1a);
+    box-shadow: 0 4px 30px rgba(255, 215, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
+
+  .loo {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: gold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .nav-linnks {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    
+  }
+
+  .nav-linnks a {
+    text-decoration: none;
+    color: #e0e0e0;
+    font-weight: 500;
+    transition: 0.3s ease;
+    position: relative;
+  }
+
+  .nav-linnks a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: gold;
+    transition: 0.3s ease;
+  }
+
+  .nav-linnks a:hover {
+    color: gold;
+  }
+
+  .nav-linnks a:hover::after {
+    width: 100%;
+  }
+
+  .nav-btn {
+    background: gold;
+    color: #0f0f10;
+    padding: 0.6rem 1.4rem;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background: #f5d142;
+    box-shadow: 0 0 10px gold;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .nav-linnks {
+      flex-direction: column;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .nav-linnks li {
+      width: 100%;
+      text-align: left;
+    }
+
+    .nav-btn {
+      align-self: flex-start;
+      margin-top: 1rem;
+    }
+  }
+
+    /* Sun animation with yellow glow */
+    .sun {
+      position: fixed;
+      top: 40px;
+      left: 30px;
+      width: 150px;
+      height: 150px;
+      background-color: #b8b5b5; /* Bright Yellow */
+      border-radius: 50%;
+      box-shadow: 0 0 50px #ffffff; /* Glowing effect */
+      animation: sunShine 2s infinite alternate;
+    }
+
+    @keyframes sunShine {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.2);
+      }
+    }
+    /* Balloon animation */
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      width: 50px;
+      height: 70px;
+      background-color: #112211;
+      border-radius: 50%;
+      animation: floatBalloon 5s infinite;
+    }
+
+    .balloon:nth-child(odd) {
+      background-color: black;
+      animation-duration: 6s;
+    }
+
+    .balloon:nth-child(even) {
+      background-color: #66c2ff;
+      animation-duration: 4.5s;
+    }
+
+    @keyframes floatBalloon {
+      0% {
+        top: -100px;
+        opacity: 1;
+      }
+      100% {
+        top: 100vh;
+        opacity: 0;
+      }
+    }
+    .clouds-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.cloud {
+    position: absolute;
+    width: 100px;
+    height: 60px;
+    background: blue;
+    border-radius: 50%;
+    opacity: 0.8;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 5;
+}
+
+.cloud-left {
+    animation-name: move-left;
+    top: 30%;
+    left: -120px;
+}
+
+.cloud-right {
+    animation-name: move-right;
+    top: 30%;
+    right: -100px;
+}
+
+@keyframes move-left {
+    0% {
+        left: -120px;
+        opacity: 0.8;
+    }
+    50% {
+        left: 50%;
+        opacity: 0.5;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes move-right {
+    0% {
+        right: -120px;
+        opacity: 0.8;
+    }
+    50% {
+        right: 50%;
+        opacity: 0.5;
+    }
+    100% {
+        right: 100%;
+        opacity: 0;
+    }
+}
+
+.cloud:nth-child(odd) {
+    animation-delay: 0.5s; /* Stagger cloud movements */
+}
+
+.cloud:nth-child(even) {
+    animation-delay: 1s; /* Stagger cloud movements */
+}
+    /* Main container */
+    .container {
+      width: 100%;
+      padding: 30px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: green;
+      text-transform: uppercase;
+      margin-top: 15px;
+      box-shadow: 0 0 50px #2d3e50;
+      background: transparent;
+      border-radius: 10px;
+      font-family: 'Playfair Display';
+
+    }
+    .Mountain {
+      background-color: rgb(71, 177, 219);
+      color: #8b8b8b;
+      text-shadow: 0 0 0 50px #fff;
+      padding: 40px;
+      border-radius: 20px;
+      margin-top: 50px;
+    }
+    .l {
+      background-color: yellowgreen;
+      color: #8b8b8b;
+      text-shadow: 0 0 0 50px #fff;
+      padding: 40px;
+      border-radius: 20px;
+      margin-top: 50px;
+    }
+    .sky {
+      background-color: rgb(79, 79, 224);
+      color: #8b8b8b;
+      text-shadow: 0 0 0 50px #fff;
+      padding: 40px;
+      border-radius: 20px;
+      margin-top: 50px;
+    }
+    /* Image styles */
+    .image {
+      width: 50%;
+      height: auto;
+      max-width: 50%;
+      margin-bottom: 30px;
+      margin-left: 0px;
+      border: 10px solid #d3d3d3;
+      border-radius: 15px;
+    }
+
+    /* Description styles */
+    .description {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #555;
+      margin: 20px 0;
+      text-align: justify;
+      padding: 0 15px;
+    }
+
+    .description p {
+      margin-bottom: 10px;
+    }
+
+    /* Section for different nature themes */
+    .nature-section {
+      margin-bottom: 80px;
+    }
+
+    /* Border and layout styling */
+    .nature-section:nth-child(odd) {
+      background-color: #f4f9fb;
+      padding: 40px;
+      border-radius: 20px;
+    }
+
+    /* Solar System section */
+    .solar-system {
+      background-color: #2d3e50;
+      color: #ff9d3d;
+      padding: 40px;
+      border-radius: 20px;
+      margin-top: 50px;
+    }
+
+    .solar-system img {
+      width: 100%;
+      max-width: 700px;
+      border-radius: 15px;
+    }
+    .Sea {
+      background-color: chocolate;
+      color: #8b8b8b;
+      text-shadow: 0 0 0 50px #fff;
+      padding: 40px;
+      border-radius: 20px;
+      margin-top: 50px;
+    }
+    /* Scrollable feature */
+    .scroll-container {
+      max-height: 70vh;
+      overflow-y: auto;
+      padding-right: 20px;
+    }/* Balloon animation */
+    .balloon {
+      position: absolute;
+      bottom: -80px;
+      width: 50px;
+      height: 70px;
+      background-color: #112211;
+      border-radius: 50%;
+      animation: floatBalloon 5s infinite;
+    }
+
+    .balloon:nth-child(odd) {
+      background-color: black;
+      animation-duration: 6s;
+    }
+
+    .balloon:nth-child(even) {
+      background-color: #66c2ff;
+      animation-duration: 5s;
+    }
+    .logig {
+  border: 2px solid var(--back-up-color--);
+  background: blue;
+  border-radius: 10px;
+  padding: 10px 10px 10px 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--back-up-color--);
+  cursor: pointer;
+  transition: 0.6s;
+  margin-left: 1300px;
+margin-top: 0px;
+margin-bottom: 10px;
+  margin-right: 3px;
+  box-shadow: inset 5px 5px 10px #b8bcc2, inset -5px -5px 10px #ffffff;
+  transform: scale(1);
+}
+ a {
+   text-decoration: none;
+ }
+  .p {
+    margin-left: 900px;
+    box-shadow: inset 5px 5px 10px #b8bcc2, inset -5px -5px 5px #ffffff;
+    padding: 5px 5px 5px 30px;
+    text-align: end;
+    color: var(--back-up-color--);
+  }
+  
+        .B {
+          color: white;
+        text-shadow: 0 0 0 50px white;
+        }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="loo">Home</div>
+    <ul class="nav-linnks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="inde.html">Login or Sign UP</a></li>
+      <li><a href="in.html">Calculator</a></li>
+      <li><a href="ind.html">About</a></li>
+    </ul>
+    <button class="nav-btn"><a href="index.html">Get Started</a></button>
+  </nav> 
+  <!-- Sun animation -->
+  <div class="sun"></div>
+  
+  <!-- Balloons at the top -->
+  <div class="balloon" style="left: 90%; animation-delay: 2s;"></div>
+  <div class="balloon" style="left: 70%; animation-delay: 1.5s;"></div>
+  <div class="balloon" style="left: 50%; animation-delay: 2s;"></div>
+  <div class="balloon" style="left: 30%; animation-delay: 3s;"></div>
+  <div class="balloon" style="left: 10%; animation-delay: 4s;"></div>
+
+  <!-- Main Content -->
+  <div class="container">
+
+    <h1 class="B">Beauty of Nature</h1><div class="clouds-container">
+      <!-- Adding 7 clouds, alternating left and right -->
+      <div class="cloud cloud-left"></div>
+      <div class="cloud cloud-right"></div>
+      <div class="cloud cloud-left"></div>
+      <div class="cloud cloud-right"></div>
+      <div class="cloud cloud-left"></div>
+      <div class="cloud cloud-right"></div>
+      <div class="cloud cloud-left"></div>
+  </div>
+    <div class="login-sec">
+      <button class="logig"><a href=inde.html>Login</a></button>
+      <p class="p">please dial incorrect user name and password to login:</p>
+    </div>
+    <div class="Mountain">
+      <img src=https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg alt="Mountain" class="image">
+      <div class="description">
+        <h2>Majestic Mountains</h2>
+        <p>Mountains are large, elevated landforms that rise significantly above the surrounding terrain, often with steep slopes and a pointed top called a peak. They are formed by geological processes like tectonic plate collisions, volcanic activity, and erosion. Different types of mountains include folded mountains, fault-block mountains, and volcanic mountains. 
+          Formation and types
+          Folded mountains: Created when tectonic plates collide and buckle, forcing the crust to fold and lift. Examples include the Himalayas and the Alps.
+          Fault-block mountains: Formed as tectonic plates move and crack, causing large blocks of the Earth's crust to be uplifted or tilted along a fault line. The Sierra Nevada mountains are a good example.
+          Volcanic mountains: Built up by volcanic activity. Magma erupts to the surface as lava, which then cools and solidifies, accumulating around a vent to form a cone.
+          Upwarped mountains: Created when pressure within the Earth pushes a large area of the crust upwards, forming gentle slopes. The Black Hills in South Dakota are an example.
+          Erosion: In some cases, erosion can leave behind residual mountains by wearing away softer rock from a larger area, leaving behind harder, more resistant rock. </p>
+       
+      </div>
+    </div>
+
+    <div class="l">
+      <img src="https://images.unsplash.com/photo-1713669374167-210ebca9f379?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGdyZWVuJTIwZmllbGRzfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" alt="Green Fields" class="image">
+      <div class="description">
+        <h2>Lush Green Fields</h2>
+        <p>Lush green fields are expanses of land covered in abundant, healthy, and vibrant green vegetation, typically grasses or agricultural crops [2, 3]. The term "lush" indicates that the vegetation is growing densely and luxuriantly, suggesting fertile soil and adequate moisture [2]. 
+          Here are the key characteristics and elements:
+          Vibrant Color: The dominant feature is the intense, healthy green color, a result of high levels of chlorophyll in the plants, indicating active photosynthesis and good overall health [2, 4].
+          Density: The fields are thickly covered with plants, leaving little to no bare ground visible [2].
+          Health: The plants appear vigorous and well-nourished, not stunted or dry. This is often due to sufficient rainfall or irrigation [3].
+          Fertility: The presence of lush vegetation implies that the soil is rich in nutrients, providing a conducive environment for abundant plant growth [3].
+          Texture and Appearance: The fields often have a soft, thick appearance, inviting to touch or walk through [2]. 
+          Lush green fields can be natural pastures, meadows, or agricultural land cultivated for crops like wheat, rice, corn, or feed for livestock [3, 4]. They are often associated with spring and summer seasons, when growth conditions are optimal, and evoke feelings of serenity, natural beauty, and agricultural productivity [4]. </p>
+      
+      </div>
+    </div>
+
+    <div class="Sea">
+      <img src="https://images.unsplash.com/photo-1615472768508-9db82090f4c6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8b2NlYW4lMjBiZWFjaHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500" alt="Sea" class="image">
+      <div class="description">
+        <h2>Endless Sea</h2>
+        <p>The phrase "endless sea" when used to describe a beach is a descriptive, poetic expression, not a formal or technical term for a specific type of beach. It is a figure of speech used to emphasize the immense scale, vastness, and seemingly infinite horizon of the ocean as viewed from the shore. 
+          Key aspects of the meaning include:
+          Immense Scale: It highlights that the ocean is so wide that one cannot see across it; the water appears to stretch out to the horizon without any visible limit or end.
+        </p>
+        <p>  Boundlessness: The term evokes a sense of boundless, uninterrupted space, often bringing feelings of wonder, peace, or even humility in the face of nature's vastness.
+          Long Beaches: The description is often used in the context of very long, uninterrupted sandy beaches, such as Cox's Bazar in Bangladesh (often referred to as an "endless stretch of blue meeting gold"), where the shoreline itself seems to go on for a very long distance.
+          Figurative Language: It is a way of conveying a feeling or an experience rather than a literal geographic measurement. The sea seems endless, even if it is technically a large body of water like a specific bay or ocean. 
+          In short, an "endless sea" beach describes a location where the sheer size of the ocean and the horizon create an impression of infinity.</p>
+      </div>
+    </div>
+
+    <div class="sky">
+      <img src="https://images.unsplash.com/photo-1676781200788-f6f2f42225d3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGltYWdlJTIwb2YlMjBza3klMjBhbmQlMjBjbG91ZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500" alt="Sky and Clouds" class="image">
+      <div class="description">
+        <h2>The Sky Above</h2>
+      <p>The sky and clouds exist in nature due to the physical properties of Earth's atmosphere and the continuous operation of the water cycle and light scattering. 
+        The Existence and Color of the Sky
+        The sky is the atmosphere that surrounds the Earth, primarily composed of nitrogen and oxygen molecules. The reason the sky appears blue is due to a phenomenon called Rayleigh scattering: 
+        Sunlight is White: Sunlight appears white, but it is actually composed of all the colors of the rainbow, each with a different wavelength. Blue light has shorter, choppier wavelengths, while red light has longer, lazier wavelengths.
+        Scattering: As sunlight passes through the atmosphere, these tiny air molecules (mostly nitrogen and oxygen) scatter the light in all directions.
+        Blue Dominates: Shorter wavelengths (blue and violet) are scattered much more effectively than longer wavelengths (red and orange). Our eyes are more sensitive to blue light than violet, so we perceive the sky as blue.
+        Other Colors: At sunrise and sunset, sunlight travels through a much thicker layer of atmosphere. Most of the blue light is scattered away, allowing the less-scattered red, orange, and yellow light to reach our eyes, creating colorful skies. </p>
+        <p>The Existence and Formation of Clouds
+          Clouds are visible masses of tiny liquid water droplets or ice crystals suspended in the atmosphere. Their existence is a result of the water cycle: 
+          Evaporation: Heat from the sun causes water from oceans, lakes, and rivers to evaporate and rise into the atmosphere as invisible water vapor.
+          Rising and Cooling: As this warm, moist air rises, the atmospheric pressure decreases, causing the air to expand and cool down.
+          Condensation: Cooler air can hold less water vapor. When the air cools to its dew point, the invisible water vapor condenses into visible, microscopic water droplets or ice crystals.
+          Condensation Nuclei: This condensation usually occurs around tiny particles floating in the air, such as dust, pollen, or sea salt, known as condensation nuclei.
+          Cloud Formation: Billions of these tiny droplets or crystals amass to form the visible structures we call clouds.
+          Precipitation: When these droplets or crystals become large and heavy enough, they fall back to the Earth's surface as precipitation (rain, snow, hail, or sleet), continuing the water cycle. 
+          Clouds generally appear white because the water droplets or ice crystals are larger than atmospheric molecules and scatter all colors of sunlight equally (Mie scattering), resulting in the perception of white light. </p>
+      </div>
+    </div>
+
+    <div class="solar-system">
+      <h2>Solar System :</h2>
+      <img src="https://i.pinimg.com/736x/80/21/30/8021306cc8a902b61ffd9103ad880118.jpg" alt="Solar System">
+      <div class="description">
+        <p style=color:white;>The solar system is the Sun and all the celestial bodies gravitationally bound to it, including eight planets, their moons, dwarf planets, asteroids, and comets. The Sun is a star at the center, and its gravity holds everything in orbit, which includes the eight planets in order from the Sun: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. The four inner planets are rocky, while the four outer planets are gas and ice giants. 
+          Components of the solar system
+          The Sun: A star at the center of the system that makes up most of the solar system's mass and is the source of light and heat.
+          Planets: There are eight planets that orbit the Sun.
+          Inner (Terrestrial) Planets: Mercury, Venus, Earth, and Mars are rocky and dense.
+          Outer (Gas and Ice Giants) Planets: Jupiter, Saturn, Uranus, and Neptune are much larger and made mostly of gases like hydrogen and helium.
+          Moons: Natural satellites that orbit planets. For example, Earth has one moon, while Jupiter has many.
+          Dwarf Planets: Celestial bodies that orbit the Sun and are large enough to be rounded by their own gravity, but have not cleared their orbital neighborhood of other objects. Pluto is the most famous dwarf planet.
+          Asteroids: Small, rocky, irregularly shaped bodies that are found mainly in the asteroid belt between Mars and Jupiter.
+          Comets: Icy bodies that can develop a visible tail when they get close to the Sun. </p>
+        <p style=color:white;>Key characteristics
+          Gravity: The Sun's powerful gravity holds all the objects in orbit around it, keeping the system together.
+          Orbits: All planets and other objects orbit the Sun in elliptical paths. It takes Earth one year to complete one orbit, while Mercury completes an orbit in just 88 days.
+          Location: The solar system is part of a much larger system of stars called the Milky Way galaxy. It takes about 225 million years for the solar system to orbit the center of the galaxy. </p>
+      </div>
+    </div>
+  </div>
+<!-- Balloons -->
+<div class="balloon" style="left: 20%; animation-delay: 0s;"></div>
+<div class="balloon" style="left: 40%; animation-delay: 1s;"></div>
+<div class="balloon" style="left: 60%; animation-delay: 2s;"></div>
+<div class="balloon" style="left: 80%; animation-delay: 3s;"></div>
+<div class="blurred-background"></div>
+
+</body>
+</html>

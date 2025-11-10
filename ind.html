@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #b3b3b3;
+        }
+        nav {
+    width: 100%;
+    background: linear-gradient(135deg, #0f0f10, #1a1a1a);
+    box-shadow: 0 4px 30px rgba(255, 215, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
+
+  .loo {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: gold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .nav-linnks {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    
+  }
+
+  .nav-linnks a {
+    text-decoration: none;
+    color: #e0e0e0;
+    font-weight: 500;
+    transition: 0.3s ease;
+    position: relative;
+  }
+
+  .nav-linnks a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: gold;
+    transition: 0.3s ease;
+  }
+
+  .nav-linnks a:hover {
+    color: gold;
+  }
+
+  .nav-linnks a:hover::after {
+    width: 100%;
+  }
+
+  .nav-btn {
+    background: gold;
+    color: #0f0f10;
+    padding: 0.6rem 1.4rem;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-right: 100px;
+  }
+
+  .nav-btn:hover {
+    background: #f5d142;
+    box-shadow: 0 0 10px gold;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .nav-linnks {
+      flex-direction: column;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .nav-linnks li {
+      width: 100%;
+      text-align: left;
+    }
+
+    .nav-btn {
+      align-self: flex-start;
+      margin-top: 1rem;
+    }
+  }
+
+         h1 {
+             color: rgb(82, 82, 245);
+             margin-top: 100px;
+         }
+         h4 {
+             color: rgb(252, 247, 247);
+         }
+         p {
+             color: green;
+         }
+         h3 {
+             color: blue;
+         }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="loo">About</div>
+        <ul class="nav-linnks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="inde.html">Login or Sign UP</a></li>
+          <li><a href="in.html">Calculator</a></li>
+          <li><a href="ind.html">About</a></li>
+        </ul>
+        <button class="nav-btn"><a href="index.html">Get Started</a></button>
+      </nav> 
+    <h1>This website:</h1>
+    <h4>this website is save and secure in this website not use third prty cookies.</h4><br>
+    <p>this website is for Learning, education, and user easily used this website</p><br>
+    <h3>In this website you not need email for login you just type anythinkbut in last gmail.com you just click login text properly and you go and enjoy website.</h3>
+</body>
+</html>
